@@ -415,11 +415,12 @@ public class Entity1GraphType :
     EfObjectGraphType<DbContext1, Entity1>
 {
     public Entity1GraphType(IEfGraphQLService<DbContext1> graphQlService) :
-        base(graphQlService) =>
-        AutoMap();
+        base(graphQlService)
+    {
+    }
 }
 ```
-<sup><a href='/src/Tests/MultiContextTests/Graphs/Entity1GraphType.cs#L1-L7' title='Snippet source file'>snippet source</a> | <a href='#snippet-Entity1GraphType.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/MultiContextTests/Graphs/Entity1GraphType.cs#L1-L8' title='Snippet source file'>snippet source</a> | <a href='#snippet-Entity1GraphType.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -721,13 +722,12 @@ public class DerivedGraphType :
         AddNavigationConnectionField(
             name: "childrenFromInterface",
             e => e.Source.ChildrenFromBase);
-        AutoMap();
         Interface<InterfaceGraphType>();
         IsTypeOf = obj => obj is DerivedEntity;
     }
 }
 ```
-<sup><a href='/src/Tests/IntegrationTests/Graphs/Inheritance/DerivedGraphType.cs#L1-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-DerivedGraphType.cs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/IntegrationTests/Graphs/Inheritance/DerivedGraphType.cs#L1-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-DerivedGraphType.cs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

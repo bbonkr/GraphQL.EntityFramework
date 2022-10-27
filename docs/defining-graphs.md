@@ -100,11 +100,10 @@ public class CompanyGraph :
             name: "employeesConnection",
             resolve: context => context.Source.Employees,
             includeNames: new[] {"Employees"});
-        AutoMap();
     }
 }
 ```
-<sup><a href='/src/Snippets/TypedGraph.cs#L7-L26' title='Snippet source file'>snippet source</a> | <a href='#snippet-typedgraph' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Snippets/TypedGraph.cs#L7-L25' title='Snippet source file'>snippet source</a> | <a href='#snippet-typedgraph' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
