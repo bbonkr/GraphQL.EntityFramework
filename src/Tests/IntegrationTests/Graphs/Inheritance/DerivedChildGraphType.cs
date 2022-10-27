@@ -2,6 +2,6 @@
     EfObjectGraphType<IntegrationDbContext, DerivedChildEntity>
 {
     public DerivedChildGraphType(IEfGraphQLService<IntegrationDbContext> graphQlService) :
-        base(graphQlService) =>
-        AutoMap(new List<string> { "Parent", "TypedParent" });
+        base(graphQlService, new List<string> { "Parent", "TypedParent" }) =>
+        AutoMap();
 }

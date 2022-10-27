@@ -4,9 +4,14 @@ public class EfObjectGraphType<TDbContext, TSource> :
     ObjectGraphType<TSource>
     where TDbContext : DbContext
 {
+    IReadOnlyList<string>? exclusions;
     public IEfGraphQLService<TDbContext> GraphQlService { get; }
 
-    public EfObjectGraphType(IEfGraphQLService<TDbContext> graphQlService) => GraphQlService = graphQlService;
+    public EfObjectGraphType(IEfGraphQLService<TDbContext> graphQlService,IReadOnlyList<string>? exclusions = null)
+    {
+        this.exclusions = exclusions;
+        GraphQlService = graphQlService;
+    }
 
     /// <summary>
     /// Map all un-mapped properties. Underlying behaviour is:
@@ -16,7 +21,7 @@ public class EfObjectGraphType<TDbContext, TSource> :
     ///  * Calls <see cref="ComplexGraphType{TSourceType}.AddField"/> for all other properties
     /// </summary>
     /// <param name="exclusions">A list of property names to exclude from mapping.</param>
-    public void AutoMap(IReadOnlyList<string>? exclusions = null) =>
+    public void AutoMap() =>
         Mapper<TDbContext>.AutoMap(this, GraphQlService, exclusions);
 
     public ConnectionBuilder<TSource> AddNavigationConnectionField<TReturn>(
