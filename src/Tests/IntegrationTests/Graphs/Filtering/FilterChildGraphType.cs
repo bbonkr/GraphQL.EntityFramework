@@ -2,6 +2,7 @@
     EfObjectGraphType<IntegrationDbContext, FilterChildEntity>
 {
     public FilterChildGraphType(IEfGraphQLService<IntegrationDbContext> graphQlService) :
-        base(graphQlService) =>
-        AutoMap();
+        base(graphQlService)
+    {
+    }
 }

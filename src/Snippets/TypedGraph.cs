@@ -19,7 +19,6 @@ public class TypedGraph
                 name: "employeesConnection",
                 resolve: context => context.Source.Employees,
                 includeNames: new[] {"Employees"});
-            AutoMap();
         }
     }
 

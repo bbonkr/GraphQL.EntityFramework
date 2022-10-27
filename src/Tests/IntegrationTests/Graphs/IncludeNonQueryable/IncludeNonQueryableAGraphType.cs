@@ -2,6 +2,7 @@
     EfObjectGraphType<IntegrationDbContext, IncludeNonQueryableA>
 {
     public IncludeNonQueryableAGraphType(IEfGraphQLService<IntegrationDbContext> graphQlService) :
-        base(graphQlService) =>
-        AutoMap();
+        base(graphQlService)
+    {
+    }
 }

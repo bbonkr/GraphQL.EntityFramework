@@ -11,7 +11,6 @@
             name: "childrenFromDerived",
             e => e.Source.Children,
             includeNames: new[] { "Children" });
-        AutoMap();
         Interface<InterfaceGraphType>();
         IsTypeOf = obj => obj is DerivedWithNavigationEntity;
     }

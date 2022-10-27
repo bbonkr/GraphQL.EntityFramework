@@ -2,6 +2,7 @@
     EfObjectGraphType<IntegrationDbContext, Level3Entity>
 {
     public Level3GraphType(IEfGraphQLService<IntegrationDbContext> graphQlService) :
-        base(graphQlService) =>
-        AutoMap();
+        base(graphQlService)
+    {
+    }
 }

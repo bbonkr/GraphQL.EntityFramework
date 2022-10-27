@@ -7,22 +7,18 @@ public class EfObjectGraphType<TDbContext, TSource> :
     IReadOnlyList<string>? exclusions;
     public IEfGraphQLService<TDbContext> GraphQlService { get; }
 
-    public EfObjectGraphType(IEfGraphQLService<TDbContext> graphQlService,IReadOnlyList<string>? exclusions = null)
+    /// <param name="exclusions">A list of property names to exclude from mapping.</param>
+    public EfObjectGraphType(IEfGraphQLService<TDbContext> graphQlService, IReadOnlyList<string>? exclusions = null)
     {
         this.exclusions = exclusions;
         GraphQlService = graphQlService;
     }
 
-    /// <summary>
-    /// Map all un-mapped properties. Underlying behaviour is:
-    ///
-    ///  * Calls <see cref="IEfGraphQLService{TDbContext}.AddNavigationField{TSource,TReturn}"/> for all non-list EF navigation properties.
-    ///  * Calls <see cref="IEfGraphQLService{TDbContext}.AddNavigationListField{TSource,TReturn}"/> for all EF navigation properties.
-    ///  * Calls <see cref="ComplexGraphType{TSourceType}.AddField"/> for all other properties
-    /// </summary>
-    /// <param name="exclusions">A list of property names to exclude from mapping.</param>
-    public void AutoMap() =>
+    public override void Initialize(ISchema schema)
+    {
         Mapper<TDbContext>.AutoMap(this, GraphQlService, exclusions);
+        base.Initialize(schema);
+    }
 
     public ConnectionBuilder<TSource> AddNavigationConnectionField<TReturn>(
         string name,

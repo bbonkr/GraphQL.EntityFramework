@@ -13,6 +13,5 @@ public class CompanyGraphType :
             name: "employeesConnection",
             resolve: context => context.Source.Employees,
             includeNames: new[] {"Employees"});
-        AutoMap();
     }
 }

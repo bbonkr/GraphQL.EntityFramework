@@ -2,6 +2,7 @@
     EfObjectGraphType<IntegrationDbContext, WithMisNamedQueryChildEntity>
 {
     public WithMisNamedQueryChildGraphType(IEfGraphQLService<IntegrationDbContext> graphQlService) :
-        base(graphQlService) =>
-        AutoMap();
+        base(graphQlService)
+    {
+    }
 }

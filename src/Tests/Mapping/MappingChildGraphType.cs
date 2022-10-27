@@ -2,6 +2,7 @@
     EfObjectGraphType<MappingContext, MappingChild>
 {
     public MappingChildGraphType(IEfGraphQLService<MappingContext> graphQlService) :
-        base(graphQlService) =>
-        AutoMap();
+        base(graphQlService)
+    {
+    }
 }

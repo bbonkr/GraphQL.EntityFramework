@@ -2,6 +2,7 @@
     EfObjectGraphType<DbContext1, Entity1>
 {
     public Entity1GraphType(IEfGraphQLService<DbContext1> graphQlService) :
-        base(graphQlService) =>
-        AutoMap();
+        base(graphQlService)
+    {
+    }
 }

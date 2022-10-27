@@ -2,6 +2,7 @@
     EfObjectGraphType<IntegrationDbContext, WithNullableEntity>
 {
     public WithNullableGraphType(IEfGraphQLService<IntegrationDbContext> graphQlService) :
-        base(graphQlService) =>
-        AutoMap();
+        base(graphQlService)
+    {
+    }
 }

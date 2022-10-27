@@ -2,8 +2,7 @@
     EfObjectGraphType<IntegrationDbContext, WithManyChildrenEntity>
 {
     public WithManyChildrenGraphType(IEfGraphQLService<IntegrationDbContext> graphQlService) :
-        base(graphQlService)
-    {
+        base(graphQlService) =>
         AddNavigationField(
             name: "child1",
             resolve: context =>
@@ -13,6 +12,4 @@
                 return context.Source.Child1;
             },
             includeNames: new []{ "Child2", "Child1" });
-        AutoMap();
-    }
 }
